@@ -53,8 +53,7 @@ variable "notebook_volume_size" {
 }
 
 variable "notebook_subnet_id" {
-  description = "Subnet ID for SageMaker notebook (optional, for VPC)
-"
+  description = "Subnet ID for SageMaker notebook (optional, for VPC)"
   type        = string
   default     = null
 }
