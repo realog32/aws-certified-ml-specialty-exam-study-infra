@@ -1,11 +1,11 @@
 variable "name_prefix" {
-  description = "Prefix for IAM role name"
+  description = "Prefix for SageMaker IAM role name"
   type        = string
   default     = "mls-prep"
 }
 
 variable "tags" {
-  description = "Tags to apply to resources"
+  description = "Tags to apply to SageMaker resources"
   type        = map(string)
   default     = {}
 }
