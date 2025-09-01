@@ -1,0 +1,18 @@
+# Example tfvars for MLS prep infra
+
+# aws_profile = "default"         # or null to use env vars
+# aws_region  = "us-east-1"
+
+project_name = "aws-mls-prep"
+environment  = "dev"
+
+# bucket_name   = null             # let Terraform generate a unique name
+force_destroy = false              # set true only if you accept deleting non-empty bucket
+
+create_notebook        = false
+notebook_instance_type = "ml.t3.medium"
+notebook_volume_size   = 10
+
+# Optional VPC settings for the notebook
+# notebook_subnet_id          = null
+# notebook_security_group_ids = []
