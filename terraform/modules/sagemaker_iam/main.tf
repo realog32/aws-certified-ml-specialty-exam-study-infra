@@ -49,3 +49,21 @@ resource "aws_iam_policy" "sagemaker_invoke_endpoint" {
   policy      = data.aws_iam_policy_document.sagemaker_invoke_endpoint.json
   tags        = var.tags
 }
+
+resource "aws_iam_user" "prediction" {
+  count = var.create_prediction_user ? 1 : 0
+  name  = var.prediction_username
+  tags  = var.tags
+}
+
+resource "aws_iam_user_policy_attachment" "prediction_invoke" {
+  count      = var.create_prediction_user ? 1 : 0
+  user       = aws_iam_user.prediction[0].name
+  policy_arn = aws_iam_policy.sagemaker_invoke_endpoint.arn
+}
+
+resource "aws_iam_user_policy_attachment" "prediction_s3_readonly" {
+  count      = var.create_prediction_user ? 1 : 0
+  user       = aws_iam_user.prediction[0].name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess"
+}

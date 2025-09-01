@@ -22,3 +22,13 @@ output "prediction_policy_arn" {
   value       = module.sagemaker_iam.prediction_policy_arn
   description = "IAM policy ARN for prediction-only SageMaker access"
 }
+
+output "prediction_user_name" {
+  value       = module.sagemaker_iam.prediction_user_name
+  description = "IAM user name for prediction-only access (if created)"
+}
+
+output "prediction_user_arn" {
+  value       = module.sagemaker_iam.prediction_user_arn
+  description = "IAM user ARN for prediction-only access (if created)"
+}
