@@ -27,3 +27,25 @@ resource "aws_iam_role_policy_attachment" "s3_access" {
   role       = aws_iam_role.sagemaker_execution.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonS3FullAccess"
 }
+
+# Prediction-only policy allowing SageMaker read actions and endpoint invocation
+data "aws_iam_policy_document" "sagemaker_invoke_endpoint" {
+  statement {
+    effect = "Allow"
+    actions = [
+      "sagemaker:Describe*",
+      "sagemaker:List*",
+      "sagemaker:Get*",
+      "sagemaker:InvokeEndpoint",
+      "sagemaker:InvokeEndpointAsync"
+    ]
+    resources = ["*"]
+  }
+}
+
+resource "aws_iam_policy" "sagemaker_invoke_endpoint" {
+  name        = "SageMakerInvokeEndpoint"
+  description = "Prediction-only policy: SageMaker read actions and InvokeEndpoint"
+  policy      = data.aws_iam_policy_document.sagemaker_invoke_endpoint.json
+  tags        = var.tags
+}
