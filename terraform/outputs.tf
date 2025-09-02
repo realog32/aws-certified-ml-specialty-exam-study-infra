@@ -52,3 +52,8 @@ output "sagemaker_domain_user_profile" {
   value       = var.create_sagemaker_domain ? module.sagemaker_app[0].user_profile_name : null
   description = "Default user profile name in the Domain"
 }
+
+output "sagemaker_space_name" {
+  value       = var.create_sagemaker_domain && var.create_jupyterlab_space ? module.sagemaker_space[0].space_name : null
+  description = "Name of the JupyterLab Space"
+}

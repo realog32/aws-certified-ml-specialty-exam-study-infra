@@ -52,6 +52,17 @@ module "sagemaker_app" {
   tags               = local.common_tags
 }
 
+module "sagemaker_space" {
+  count                    = var.create_sagemaker_domain && var.create_jupyterlab_space ? 1 : 0
+  source                   = "./modules/sagemaker_space"
+  name                     = "${var.project_name}-space-${var.environment}"
+  domain_id                = module.sagemaker_app[0].domain_id
+  owner_user_profile_name  = module.sagemaker_app[0].user_profile_name
+  instance_type            = var.space_instance_type
+  sharing_type             = var.space_sharing_type
+  tags                     = local.common_tags
+}
+
 resource "local_file" "connection_info" {
   filename = "${path.root}/terraform_local_info.json"
   content  = jsonencode({
@@ -63,6 +74,7 @@ resource "local_file" "connection_info" {
     private_subnets    = module.vpc.private_subnet_ids
     domain_id          = var.create_sagemaker_domain ? module.sagemaker_app[0].domain_id : null
     domain_user        = var.create_sagemaker_domain ? module.sagemaker_app[0].user_profile_name : null
+    space_name         = var.create_sagemaker_domain && var.create_jupyterlab_space ? module.sagemaker_space[0].space_name : null
   })
   file_permission = "0644"
 }

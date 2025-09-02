@@ -25,3 +25,8 @@ notebook_volume_size   = 10
 
 # create_prediction_user = true
 # prediction_username = "ml_user_predict"
+
+# JupyterLab Space (within Studio)
+# create_jupyterlab_space = true
+# space_instance_type     = "ml.t3.medium"
+# space_sharing_type      = "Private"  # or "Shared"

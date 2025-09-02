@@ -111,3 +111,21 @@ variable "prediction_username" {
   type        = string
   default     = "ml_user_predict"
 }
+
+variable "create_jupyterlab_space" {
+  description = "Whether to create a SageMaker JupyterLab Space"
+  type        = bool
+  default     = true
+}
+
+variable "space_instance_type" {
+  description = "Default instance type for the JupyterLab Space"
+  type        = string
+  default     = "ml.t3.medium"
+}
+
+variable "space_sharing_type" {
+  description = "Space sharing type: Private or Shared"
+  type        = string
+  default     = "Private"
+}
