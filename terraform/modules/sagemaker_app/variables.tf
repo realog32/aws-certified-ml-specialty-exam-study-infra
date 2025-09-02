@@ -45,7 +45,7 @@ variable "app_name" {
 variable "app_type" {
   description = "Studio app type"
   type        = string
-  default     = "JupyterServer"
+  default     = "Studio"
 }
 
 variable "tags" {
