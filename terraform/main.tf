@@ -24,7 +24,9 @@ module "s3_data_bucket" {
 
 module "sagemaker_iam" {
   source = "./modules/sagemaker_iam"
-  tags   = local.common_tags
+  tags                     = local.common_tags
+  create_prediction_user   = var.create_prediction_user
+  prediction_username      = var.prediction_username
 }
 
 module "sagemaker_notebook" {
