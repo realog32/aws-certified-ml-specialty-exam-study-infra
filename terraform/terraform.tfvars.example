@@ -13,6 +13,15 @@ create_notebook        = false
 notebook_instance_type = "ml.t3.medium"
 notebook_volume_size   = 10
 
-# Optional VPC settings for the notebook
 # notebook_subnet_id          = null
 # notebook_security_group_ids = []
+# vpc_cidr = "10.0.0.0/16"
+# vpc_az_count = 2
+# vpc_single_nat_gateway = true  # set false for one NAT per AZ
+
+# create_sagemaker_domain = true
+# sagemaker_domain_name = "aws-mls-prep-domain-dev"
+# sagemaker_user_profile_name = "studio-user"
+
+# create_prediction_user = true
+# prediction_username = "ml_user_predict"
