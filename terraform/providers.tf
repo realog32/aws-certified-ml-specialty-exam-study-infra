@@ -7,7 +7,7 @@ provider "aws" {
       Project     = var.project_name
       Environment = var.environment
       ManagedBy   = "terraform"
-      Repo        = "github.com/your-org/aws-cert-ml-specialty-prep"
+      Repo        = "github.com/realog32/aws-certified-ml-specialty-exam-study-infra"
     }
   }
 }

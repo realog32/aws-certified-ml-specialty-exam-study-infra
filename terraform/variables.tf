@@ -63,3 +63,21 @@ variable "notebook_security_group_ids" {
   type        = list(string)
   default     = []
 }
+
+variable "vpc_cidr" {
+  description = "CIDR for the VPC to host SageMaker"
+  type        = string
+  default     = "10.0.0.0/16"
+}
+
+variable "vpc_az_count" {
+  description = "Number of AZs to spread subnets across"
+  type        = number
+  default     = 2
+}
+
+variable "vpc_single_nat_gateway" {
+  description = "Use a single NAT Gateway (cost saver)"
+  type        = bool
+  default     = true
+}
