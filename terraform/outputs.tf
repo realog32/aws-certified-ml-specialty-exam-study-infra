@@ -42,3 +42,13 @@ output "private_subnet_ids" {
   value       = module.vpc.private_subnet_ids
   description = "Private subnet IDs for workloads and SageMaker"
 }
+
+output "sagemaker_domain_id" {
+  value       = var.create_sagemaker_domain ? module.sagemaker_app[0].domain_id : null
+  description = "SageMaker Domain ID"
+}
+
+output "sagemaker_domain_user_profile" {
+  value       = var.create_sagemaker_domain ? module.sagemaker_app[0].user_profile_name : null
+  description = "Default user profile name in the Domain"
+}

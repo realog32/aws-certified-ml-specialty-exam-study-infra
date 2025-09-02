@@ -39,6 +39,17 @@ module "sagemaker_notebook" {
   tags               = local.common_tags
 }
 
+module "sagemaker_app" {
+  count              = var.create_sagemaker_domain ? 1 : 0
+  source             = "./modules/sagemaker_app"
+  name               = coalesce(var.sagemaker_domain_name, "${var.project_name}-domain-${var.environment}")
+  vpc_id             = module.vpc.vpc_id
+  subnet_ids         = module.vpc.private_subnet_ids
+  execution_role_arn = module.sagemaker_iam.role_arn
+  user_profile_name  = var.sagemaker_user_profile_name
+  tags               = local.common_tags
+}
+
 resource "local_file" "connection_info" {
   filename = "${path.root}/terraform_local_info.json"
   content  = jsonencode({
@@ -48,6 +59,8 @@ resource "local_file" "connection_info" {
     notebook_name      = var.create_notebook ? module.sagemaker_notebook[0].notebook_name : null
     vpc_id             = module.vpc.vpc_id
     private_subnets    = module.vpc.private_subnet_ids
+    domain_id          = var.create_sagemaker_domain ? module.sagemaker_app[0].domain_id : null
+    domain_user        = var.create_sagemaker_domain ? module.sagemaker_app[0].user_profile_name : null
   })
   file_permission = "0644"
 }

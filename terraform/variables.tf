@@ -81,3 +81,21 @@ variable "vpc_single_nat_gateway" {
   type        = bool
   default     = true
 }
+
+variable "create_sagemaker_domain" {
+  description = "Whether to create a SageMaker Domain and default app"
+  type        = bool
+  default     = true
+}
+
+variable "sagemaker_domain_name" {
+  description = "Name for the SageMaker Domain"
+  type        = string
+  default     = null
+}
+
+variable "sagemaker_user_profile_name" {
+  description = "Default user profile name in the Domain"
+  type        = string
+  default     = "studio-user"
+}
