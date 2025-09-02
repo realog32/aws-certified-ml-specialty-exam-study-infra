@@ -21,7 +21,7 @@ notebook_volume_size   = 10
 
 # create_sagemaker_domain = true
 # sagemaker_domain_name = "aws-mls-prep-domain-dev"
-# sagemaker_user_profile_name = "studio-user"
+# sagemaker_user_profile_name = "aws-mls-prep"
 
 # create_prediction_user = true
 # prediction_username = "ml_user_predict"

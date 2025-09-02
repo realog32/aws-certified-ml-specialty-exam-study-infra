@@ -97,7 +97,7 @@ variable "sagemaker_domain_name" {
 variable "sagemaker_user_profile_name" {
   description = "Default user profile name in the Domain"
   type        = string
-  default     = "studio-user"
+  default     = "aws-mls-prep"
 }
 
 variable "create_prediction_user" {

@@ -27,7 +27,7 @@ variable "auth_mode" {
 variable "user_profile_name" {
   description = "Default user profile name"
   type        = string
-  default     = "studio-user"
+  default     = "aws-mls-prep"
 }
 
 variable "create_studio_app" {
