@@ -3,6 +3,11 @@ variable "name" {
   type        = string
 }
 
+variable "code_repository_url" {
+  description = "Default code repository URL (optional)"
+  type        = string
+}
+
 variable "domain_id" {
   description = "SageMaker Domain ID"
   type        = string

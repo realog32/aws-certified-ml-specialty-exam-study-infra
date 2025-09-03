@@ -60,6 +60,7 @@ module "sagemaker_space" {
   owner_user_profile_name  = module.sagemaker_app[0].user_profile_name
   instance_type            = var.space_instance_type
   sharing_type             = var.space_sharing_type
+  code_repository_url      = var.space_code_repository_url
   tags                     = local.common_tags
 }
 

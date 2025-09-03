@@ -6,6 +6,11 @@ resource "aws_sagemaker_space" "this" {
     app_type = "JupyterLab"
 
     jupyter_lab_app_settings {
+
+      code_repository {
+        repository_url  = var.code_repository_url
+      }
+
       default_resource_spec {
         instance_type        = var.instance_type
         lifecycle_config_arn = var.lifecycle_config_arn

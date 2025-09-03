@@ -26,7 +26,7 @@ notebook_volume_size   = 10
 # create_prediction_user = true
 # prediction_username = "ml_user_predict"
 
-# JupyterLab Space (within Studio)
-# create_jupyterlab_space = true
+# create_jupyterlab_space = true     # JupyterLab Space (within Studio)
 # space_instance_type     = "ml.t3.medium"
 # space_sharing_type      = "Private"  # or "Shared"
+# space_code_repository_url = "https://github.com/ChandraLingam/AmazonSageMakerCourse.git"

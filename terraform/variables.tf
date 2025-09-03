@@ -129,3 +129,9 @@ variable "space_sharing_type" {
   type        = string
   default     = "Private"
 }
+
+variable "space_code_repository_url" {
+  description = "URL to the default git code repo for the JupyterLab Space"
+  type        = string
+  default     = "https://github.com/ChandraLingam/AmazonSageMakerCourse.git"
+}
