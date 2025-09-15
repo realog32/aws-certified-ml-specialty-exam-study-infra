@@ -3,7 +3,7 @@ resource "aws_sagemaker_domain" "this" {
   auth_mode                 = var.auth_mode
   vpc_id                    = var.vpc_id
   subnet_ids                = var.subnet_ids
-  app_network_access_type   = "VpcOnly"
+  app_network_access_type   = "PublicInternetOnly"
   tags                      = merge(var.tags, { Name = var.name })
 
   default_user_settings {

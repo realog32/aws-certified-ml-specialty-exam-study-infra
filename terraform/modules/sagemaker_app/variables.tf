@@ -39,7 +39,7 @@ variable "create_studio_app" {
 variable "app_name" {
   description = "Studio app name"
   type        = string
-  default     = "studio"
+  default     = "MyStudioApp"
 }
 
 variable "app_type" {
