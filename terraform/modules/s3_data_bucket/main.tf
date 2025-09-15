@@ -35,3 +35,26 @@ resource "aws_s3_bucket_public_access_block" "this" {
   ignore_public_acls      = true
   restrict_public_buckets = true
 }
+
+locals {
+  sample_project_subfolders = [
+    "checkpoints",
+    "model",
+    "test",
+    "training",
+    "validation",
+  ]
+}
+
+resource "aws_s3_object" "sample_project_root" {
+  bucket  = aws_s3_bucket.this.id
+  key     = "${var.initial_project_name}/"
+  content = ""
+}
+
+resource "aws_s3_object" "sample_project_subfolders" {
+  for_each = toset(local.sample_project_subfolders)
+  bucket   = aws_s3_bucket.this.id
+  key      = "${var.initial_project_name}/${each.key}/"
+  content  = ""
+}

@@ -9,6 +9,8 @@ environment  = "dev"
 # bucket_name   = null             # let Terraform generate a unique name
 force_destroy = false              # set true only if you accept deleting non-empty bucket
 
+# initial_project_name = "sample-project"   # root project folder name within the data bucket
+
 create_notebook        = false
 notebook_instance_type = "ml.t3.medium"
 notebook_volume_size   = 10

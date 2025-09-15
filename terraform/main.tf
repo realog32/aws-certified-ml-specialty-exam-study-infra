@@ -19,6 +19,7 @@ module "s3_data_bucket" {
   source        = "./modules/s3_data_bucket"
   bucket_name   = var.bucket_name
   force_destroy = var.force_destroy
+  initial_project_name = var.initial_project_name
   tags          = local.common_tags
 }
 

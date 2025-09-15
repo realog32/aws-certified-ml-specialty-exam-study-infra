@@ -27,3 +27,9 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "initial_project_name" {
+  description = "Root prefix/folder to create in the S3 bucket for sample projects"
+  type        = string
+  default     = "sample-project"
+}

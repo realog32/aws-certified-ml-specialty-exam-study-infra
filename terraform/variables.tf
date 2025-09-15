@@ -34,6 +34,12 @@ variable "bucket_name" {
   default     = null
 }
 
+variable "initial_project_name" {
+  description = "Name of project folder to create in the S3 data bucket"
+  type        = string
+  default     = "sample-project"
+}
+
 variable "force_destroy" {
   description = "Allow Terraform to delete S3 bucket with non-empty contents"
   type        = bool
