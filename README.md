@@ -1,6 +1,6 @@
-# AWS Certified Machine Learning – Specialty: Study Infra
+# AWS Machine Learning Environment Automation
 
-Minimal Terraform project to provision AWS and local resources useful while preparing for the AWS Certified Machine Learning – Specialty exam. Safe-by-default, easy to extend, and suitable for open-source.
+Minimal Terraform project to provision AWS and local resources for running machine learning workloads using SageMaker AI.
 
 ## What this creates
 
@@ -14,7 +14,7 @@ Minimal Terraform project to provision AWS and local resources useful while prep
   - Versioning enabled, SSE-S3 (AES256), public access blocked
   - Optional `force_destroy` for teardown safety (default: `false`)
   - Creates a sample project prefix: `<initial_project_name>/`
-    - Subfolders: `training/`, `validation/`, `test/`, `model/`, `checkpoints/`
+    - Subfolders: `training/`, `validation/`, `test/`, `model/`, `checkpoints/`, and `output/`
 
 - SageMaker IAM
   - Execution role for SageMaker with managed policies:

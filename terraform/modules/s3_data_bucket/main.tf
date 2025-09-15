@@ -43,6 +43,7 @@ locals {
     "test",
     "training",
     "validation",
+    "output",
   ]
 }
 
